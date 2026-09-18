@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Per Cici ❤️</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,70,150,.15), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(180,40,255,.15), transparent 30%),
+        linear-gradient(135deg, #09000e, #30001f, #120018);
+    color: white;
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+}
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+}
+.intro {
+    max-width: 650px;
+    animation: fadeIn 2s ease;
+}
+.heart-big {
+    font-size: 70px;
+    animation: heartbeat 1.5s infinite;
+    filter: drop-shadow(0 0 25px rgba(255,50,120,.7));
+}
+h1 {
+    font-size: clamp(38px, 9vw, 60px);
+    margin: 20px 0 15px;
+}
+.subtitle {
+    font-size: 20px;
+    opacity: 0.85;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+.small-text {
+    font-size: 14px;
+    opacity: .5;
+    margin-bottom: 30px;
+}
+button {
+    background: linear-gradient(135deg, #ff4f91, #ff176f);
+    color: white;
+    border: none;
+    padding: 17px 32px;
+    border-radius: 40px;
+    font-size: 18px;
+    font-family: Georgia, serif;
+    cursor: pointer;
+    box-shadow:
+        0 0 25px rgba(255, 50, 130, 0.5),
+        0 10px 30px rgba(0,0,0,.3);
+    transition: 0.3s;
+}
+button:hover {
+    transform: scale(1.08);
+}
+.letter {
+    display: none;
+    max-width: 760px;
+    width: 100%;
+    animation: letterAppear 2s ease;
+}
+.letter-box {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 28px;
+    padding: 35px 30px;
+    backdrop-filter: blur(12px);
+    box-shadow:
+        0 0 50px rgba(255, 60, 150, 0.18),
+        inset 0 0 30px rgba(255,255,255,.02);
+    text-align: left;
+}
+.letter-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.letter-header .emoji {
+    font-size: 55px;
+    animation: heartbeat 1.5s infinite;
+}
+.letter h2 {
+    color: #ff82b2;
+    font-size: 36px;
+    margin: 12px 0;
+    text-align: center;
+}
+.letter-header span {
+    opacity: .55;
+    font-size: 14px;
+}
+.letter p {
+    font-size: 19px;
+    line-height: 1.9;
+    margin: 0 0 28px;
+}
+.final {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,.15);
+    text-align: center;
+    font-size: 25px;
+    color: #ff82b2;
+}
+.final-heart {
+    font-size: 45px;
+    animation: heartbeat 1.5s infinite;
+    margin-bottom: 15px;
+}
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    animation: floatUp linear forwards;
+    pointer-events: none;
+    z-index: 10;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.12);
+    }
+}
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 18px;
+    }
+    .letter-box {
+        padding: 28px 20px;
+    }
+    .letter p {
+        font-size: 17px;
+        line-height: 1.85;
+    }
+    .letter h2 {
+        font-size: 31px;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<!-- SCHERMATA INIZIALE -->
+<div class="intro" id="intro">
+    <div class="heart-big">💌</div>
+    <h1>Ho una cosa da dirti...</h1>
+    <div class="subtitle">
+        Ma questa volta non voglio dirtela semplicemente a parole.
+    </div>
+    <div class="small-text">
+        Per te, Cici ❤️
+    </div>
+    <button onclick="openLetter()">
+        Apri la sorpresa ❤️
+    </button>
+</div>
+<!-- LETTERA -->
+<div class="letter" id="letter">
+    <div class="letter-box">
+        <div class="letter-header">
+            <div class="emoji">❤️</div>
+            <h2>Per te, Cici</h2>
+            <span>Una cosa che volevo dirti.</span>
+        </div>
+        <p>
+            ciao amore, ti scrivo questa lettera perché a volte
+            vorrei esprimermi in un modo che non riesco a farlo
+            semplicemente a parole, allora ho deciso di scrivere
+            un po’ come flusso di coscienza.
+        </p>
+        <p>
+            io amore parto dicendoti che sono perso di te,
+            ti amo da morire e credimi che ti darei il mondo
+            intero pur di vederti felice. con te sto davvero
+            bene ma davvero tanto e se fosse per me io vorrei
+            già vivere insieme a te, per viverti ogni singolo
+            istante, non mi basta mai il tempo quando siamo
+            insieme e vorrei che fosse sempre di più e di più…
+        </p>
+        <p>
+            scusami se a volte amore mi vedi distaccato o pensi
+            che non voglia vederti, perché credimi, non è affatto
+            così. anzi, sinceramente vorrei già tornare a brescia
+            per vederti, mi manchi già così tanto.
+        </p>
+        <p>
+            io voglio dirti una cosa che tengo dentro di me,
+            a volte non ti nego che, pur se resto sempre pacato
+            e “impassibile”, io ci rimango male per alcune cose,
+            come per esempio il sentirmi dire cose non vere,
+            anche se dici che scherzi. oppure anche per la
+            situazione del negro, che magari per te può essere
+            stata una cosa da niente, però a me in quel momento
+            ha fatto un po’ pensare.
+        </p>
+        <p>
+            forse perché io in una situazione del genere avrei
+            avuto un modo diverso di comportarmi e quindi mi sono
+            sentito un po’ insicuro. mi era sembrato che volessi
+            rivederlo e questa cosa mi aveva fatto rimanere un po’
+            male, anche se poi ho capito che non era così.
+            e non voglio assolutamente fartene una colpa, volevo
+            solo farti capire quello che ho pensato io.
+        </p>
+        <p>
+            a volte amore ci rimango male anche quando ti vedo
+            distaccata, perché ho paura di perdere una persona
+            tanto speciale, e si, sei te quella persona che reputo
+            tanto speciale. io ti amo alla follia amore e ogni
+            tanto anche a me servono delle rassicurazioni.
+        </p>
+        <p>
+            non perché non mi fido di te, ma perché ci tengo e
+            credo così tanto a noi che a volte ho bisogno di
+            sentirmi rassicurato.
+        </p>
+        <p>
+            io detto questo amore volevo ricordarti che sei la
+            donna e la persona più speciale che io conosca e sei
+            la donna con cui vorrei passare il resto della mia
+            vita insieme. con te voglio condividere tutto,
+            voglio esserci quando sei felice e quando magari non
+            lo sei, voglio vivermi ogni momento con te e voglio
+            continuare a costruire qualcosa insieme.
+        </p>
+        <div class="final">
+            <div class="final-heart">❤️</div>
+            <div>
+                ti amo da morire patata mia,
+                davvero tanto tanto tanto
+            </div>
+            <div style="margin-top:15px;">
+                ❤️❤️❤️❤️❤️
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+function openLetter() {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("letter").style.display = "block";
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+    for (let i = 0; i < 40; i++) {
+        setTimeout(createHeart, i * 90);
+    }
+}
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    const hearts = [
+        "❤️",
+        "💗",
+        "💖",
+        "💕",
+        "💘"
+    ];
+    heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+    heart.style.left =
+        Math.random() * 100 + "vw";
+    heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+    heart.style.animationDuration =
+        (3 + Math.random() * 4) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+</script>
+</body>
+</html>
